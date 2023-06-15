@@ -52,6 +52,10 @@
     color:var(--red);
    }
 
+.slider-container {
+  transform: translateZ(5);
+}
+
 
 @media (max-width:768px){
     .slider-info{
