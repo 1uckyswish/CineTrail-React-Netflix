@@ -4,6 +4,8 @@ import Homepage from './Pages/Homepage/Homepage'
 import Footer from './Components/Footer/Footer'
 import { Dna } from  'react-loader-spinner'
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ThemeContextProvider from './context/ThemeContext'
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -27,9 +29,16 @@ function App() {
 
   :
   <>
-    <Header />
-    <Homepage apiKey={apiKey} baseUrl={baseUrl}/>
-    <Footer />
+ <BrowserRouter>
+      <ThemeContextProvider>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
+
+      
+      </Routes>
+      </ThemeContextProvider>
+      </BrowserRouter>
   </>
    }
     </>

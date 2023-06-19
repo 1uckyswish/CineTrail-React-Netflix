@@ -10,7 +10,7 @@ function Homepage({apiKey, baseUrl}) {
       <Slider apiKey={apiKey} baseUrl={baseUrl} />
       <div className="movies-wrapper">
        <PopularMovies apiKey={apiKey} baseUrl={baseUrl}/>
-       <TopRatedMovies />
+       <TopRatedMovies apiKey={apiKey} baseUrl={baseUrl}/>
       </div>
     </div>
   )

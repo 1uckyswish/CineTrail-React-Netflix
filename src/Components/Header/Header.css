@@ -20,6 +20,7 @@
     color: var(--red);
     font-size: 2rem;
     font-weight:bold;
+    font-family: 'Bebas Neue', sans-serif;
 }
 .search-container{
     width:40%;
@@ -27,22 +28,19 @@
     position:relative;
 }
 .search-input{
-    border:none;
+    border:3px solid var(--grey);
     padding:8px;
     border-radius: 8px;
     width:100%;
     background-color: black;
-    color:var(--grey-text);
+    color:var(--white);
 } 
-.input-active{
-    border-radius: 0;
-}
+
 .search-input::placeholder{
-   color:var(--grey-text);
+   color:var(--white);
 }
 .search-input:focus{
   outline:none;
-  border-radius: 0;
 }
 .input-light{
 background-color: var(--footer-bg);

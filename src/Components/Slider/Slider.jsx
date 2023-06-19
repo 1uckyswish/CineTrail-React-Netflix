@@ -21,7 +21,7 @@ function Slider({ apiKey, baseUrl }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % upcomingMovies.length);
-    }, 15000);
+    }, 8000);
 
     return () => {
       clearInterval(interval);
