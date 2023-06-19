@@ -9,10 +9,11 @@
     padding:5px;
     color:var(--red);
     /* font-size: 48px;  */ 
+    text-align: center;
 }
 .movie-info-bottom{
     visibility: hidden;
-    height:50px;
+    height:auto;
     width:100%;
     position:absolute;
     bottom:0;
@@ -22,6 +23,11 @@
     align-items: center;
     justify-content: center;
     color:var(--white);
+    flex-wrap: wrap;
+}
+
+.movie-info-bottom p{
+    text-align: center;
 }
 
 .popular-card:hover .movie-info-top{

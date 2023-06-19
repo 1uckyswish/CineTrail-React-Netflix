@@ -20,7 +20,7 @@ function TopRatedMovies({baseUrl, apiKey}) {
     <div className="top-rated-container">
       <h3>Top Rated Movies</h3>
       <div className="top-rated-cards-wrapper">
-         {topRatedMovies?.map((movie)=>{
+         {topRatedMovies.slice(0,10).map((movie)=>{
         return (
             <MovieCard
             key={movie?.id}
