@@ -3,7 +3,7 @@ import MovieCard from '../MovieCard/MovieCard'
 import axios from 'axios';
 
 function TopRatedMovies({baseUrl, apiKey}) {
-  const [topRatedMovies, setTopRatedMovies] = useState(null);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   useEffect(
     ()=>{
