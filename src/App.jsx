@@ -1,11 +1,12 @@
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Dna } from  'react-loader-spinner'
 import './App.css'
 import Header from './Components/Header/Header'
 import Homepage from './Pages/Homepage/Homepage'
 import Footer from './Components/Footer/Footer'
-import { Dna } from  'react-loader-spinner'
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ThemeContextProvider from './context/ThemeContext'
+import MovieDetails from './Pages/MovieDetails/MovieDetails'
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -15,7 +16,7 @@ function App() {
    useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 900);
   }, []);
 
   return (
@@ -29,16 +30,16 @@ function App() {
 
   :
   <>
- <BrowserRouter>
+    <BrowserRouter>
       <ThemeContextProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
-
-      
-      </Routes>
+        <Header />
+          <Routes>
+            <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
+            <Route path='/MovieDetails/:movieId' element={<MovieDetails apiKey={apiKey} baseUrl={baseUrl}/>} />
+          </Routes>
+          <Footer />
       </ThemeContextProvider>
-      </BrowserRouter>
+    </BrowserRouter>
   </>
    }
     </>

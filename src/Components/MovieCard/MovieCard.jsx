@@ -1,6 +1,6 @@
 import "./MovieCard.css";
 
-function MovieCard({ movie, width, height, radius, cardStyle, imgUrl}) {
+function MovieCard({ movie, width, height, radius, cardStyle, imgUrl, movieId}) {
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   const imageStyle={
     backgroundImage: `url(${imageBaseUrl}${imgUrl})`,
@@ -10,11 +10,12 @@ function MovieCard({ movie, width, height, radius, cardStyle, imgUrl}) {
     width,
     height,
     position: "relative",
+    alignItems: "center",
     borderRadius: radius,
     boxShadow: cardStyle === "popular-card" ? "0px 0px 10px 0px rgba(118, 118, 118, 0.75)" : null,
   }
   return (
-    <div className={cardStyle}>
+    <a href={`/MovieDetails/${movieId}`} className={cardStyle}>
       <div style={imageStyle}>
         <div className="movie-info-top">stars</div>
         <div className="movie-info-bottom">
@@ -28,7 +29,7 @@ function MovieCard({ movie, width, height, radius, cardStyle, imgUrl}) {
           :
           null
         }
-    </div>
+    </a>
   )
 }
 

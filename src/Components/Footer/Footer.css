@@ -3,3 +3,7 @@
     background-color: var(--light-bg);
     height: 50px;
 }
+
+h1{
+    color: white;
+}

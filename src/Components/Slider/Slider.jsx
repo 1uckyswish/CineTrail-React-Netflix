@@ -35,6 +35,7 @@ function Slider({ apiKey, baseUrl }) {
     backgroundRepeat: 'no-repeat',
     height: '60vh',
     position: 'relative',
+    zIndex: "0",
     transition: 'background-image 0.1s ease-in-out', // Added CSS transition
   };
 

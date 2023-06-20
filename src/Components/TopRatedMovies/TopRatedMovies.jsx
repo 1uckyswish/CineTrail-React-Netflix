@@ -10,17 +10,16 @@ function TopRatedMovies({baseUrl, apiKey}) {
        axios.get(`${baseUrl}top_rated?api_key=${apiKey}&language=en-US&page=1`)
       .then(result=>{
         console.log(result?.data?.results)
-        setTopRatedMovies(result?.data?.results)
+        setTopRatedMovies(result?.data?.results.slice(0,10))
       })
        .catch((error)=> console.log(error))
-    },[]
-  )
+    },[])
 
   return (
     <div className="top-rated-container">
       <h3>Top Rated Movies</h3>
       <div className="top-rated-cards-wrapper">
-         {topRatedMovies.slice(0,10).map((movie)=>{
+         {topRatedMovies.map((movie)=>{
         return (
             <MovieCard
             key={movie?.id}
@@ -30,6 +29,7 @@ function TopRatedMovies({baseUrl, apiKey}) {
             radius="8px"
             cardStyle="top-rated-card"
             imgUrl={movie?.backdrop_path}
+            movieId={movie?.id}
             />
          )
       })}

@@ -30,7 +30,8 @@ function PopularMovies({baseUrl, apiKey}) {
                   height="300px"
                   radius="16px"
                   cardStyle="popular-card"
-                  imgUrl={movie?.poster_path}/>
+                  imgUrl={movie?.poster_path}
+                  movieId={movie?.id}/>
                 </p>
                 ))
             }
