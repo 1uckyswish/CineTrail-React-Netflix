@@ -4,6 +4,7 @@ import "./MovieDetails.css"
 import axios from 'axios';
 import ReactPlayer from 'react-player/youtube'
 import Review from '../../Components/Review/Review';
+import Genres from '../../Components/Genres/Genres';
 
 
 
@@ -12,6 +13,9 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
   const [movie, setMovie] = useState("");
   const [videoLink, setVideoLink] = useState("");
   const [reviews, setReviews] = useState([]);
+  const [numReviews, setNumReviews] = useState(3);
+  const [totalReviews, setTotalReviews] = useState();
+  const [movieGenres, setMovieGenres] = useState([]);
 
 
 
@@ -20,6 +24,7 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
        axios.get(`${baseUrl}${movieId}?api_key=${apiKey}&language=en-US&page=1`)
       .then(result=>{
         setMovie(result?.data);
+        setMovieGenres(result?.data?.genres);
       })
        .catch((error)=> console.log(error))
        //* fetch the data from api to get movie videos
@@ -32,8 +37,9 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
       //* fetch the data from api to get reviews
        axios.get(`${baseUrl}${movieId}/reviews?api_key=${apiKey}&language=en-US&page=1`)
       .then(result=>{
-        console.log(result.data.results)
-        setReviews(result.data.results)
+        // console.log(result.data.results)
+        setReviews(result?.data?.results)
+        setTotalReviews(result?.data?.results.length);
       })
        .catch((error)=> console.log(error))
     },[]);
@@ -72,13 +78,23 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
               <h4>
                 Budget: $<span>{movie?.budget}</span>
               </h4>
+              <Genres movieGenres={movieGenres} component={"details"}/>
             </div>
           </div>
           <div className="review-container">
             {
-              reviews.map((review)=>{
-               return <Review key={review.id} review={review} imgBaseUrl={imgBaseUrl}>{review.content}</Review>
+              reviews.slice(0, numReviews).map((review)=>{
+               return <Review 
+               key={review?.id} 
+               review={review} 
+               imgBaseUrl={imgBaseUrl}>{review?.content}</Review>
               })
+            }
+            {
+              numReviews >= totalReviews?
+              <p onClick={()=> setNumReviews(3)}>End Of Reviews</p>
+              :
+              <p onClick={()=> setNumReviews(numReviews + 2)}>Read More Reviews</p>
             }
           </div>
         </div>

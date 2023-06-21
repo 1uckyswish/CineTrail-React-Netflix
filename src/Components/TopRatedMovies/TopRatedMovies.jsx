@@ -9,7 +9,7 @@ function TopRatedMovies({baseUrl, apiKey}) {
     ()=>{
        axios.get(`${baseUrl}top_rated?api_key=${apiKey}&language=en-US&page=1`)
       .then(result=>{
-        console.log(result?.data?.results)
+        // console.log(result?.data?.results)
         setTopRatedMovies(result?.data?.results.slice(0,10))
       })
        .catch((error)=> console.log(error))

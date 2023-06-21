@@ -11,7 +11,7 @@ function PopularMovies({baseUrl, apiKey}) {
     ()=>{
       axios.get(`${baseUrl}popular?api_key=${apiKey}&language=en-US&page=${currentPage}`)
       .then(result=>{
-        console.log(result?.data?.results)
+        // console.log(result?.data?.results)
         setPopularMovies(result?.data?.results)
       })
        .catch((error)=> console.log(error))

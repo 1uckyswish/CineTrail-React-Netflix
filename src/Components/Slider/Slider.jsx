@@ -3,6 +3,7 @@ import './Slider.css';
 import axios from 'axios';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import StarRatings from 'react-star-ratings';
+import Genres from '../Genres/Genres';
 
 function Slider({ apiKey, baseUrl }) {
   const [upcomingMovies, setUpComingMovies] = useState([]);
@@ -14,6 +15,7 @@ function Slider({ apiKey, baseUrl }) {
       .get(`${baseUrl}upcoming?api_key=${apiKey}`)
       .then((result) => {
         setUpComingMovies(result.data.results);
+        // console.log(result.data.results);
       })
       .catch((error) => console.log('error message', error));
   }, []);
@@ -56,8 +58,9 @@ function Slider({ apiKey, baseUrl }) {
         <MdKeyboardArrowRight className='right-arrow' onClick={handleRight} />
         <div className='slider-info'>
           <h1>{upcomingMovies[index]?.title}</h1>
-          <p>{upcomingMovies[index]?.overview}</p>
+          <p>{upcomingMovies[index]?.overview.slice(0,100)}...</p>
           <p>Release Date: {upcomingMovies[index]?.release_date}</p>
+          <Genres movieGenres={upcomingMovies[index]?.genre_ids} apiKey={apiKey}/>
           {upcomingMovies[index] && (
             <StarRatings
               rating={upcomingMovies[index]?.vote_average / 2}

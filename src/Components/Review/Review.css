@@ -36,7 +36,8 @@
    color:black;
 }
  .read-more,.read-less{
-    color:gray;
-    font-size:0.75rem;
+    color: red;
+    font-size:0.85rem;
     margin-left:5px;
+    cursor: pointer;
  }

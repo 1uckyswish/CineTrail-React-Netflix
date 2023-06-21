@@ -73,6 +73,10 @@
     padding:20px 0;
 }
 
+.review-container p{
+    cursor: pointer;
+}
+
 .reviews-title{
     border-bottom:solid 2px gray;
     padding-bottom:10px;
