@@ -11,6 +11,7 @@ import MovieDetails from './Pages/MovieDetails/MovieDetails'
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const baseUrl = import.meta.env.VITE_BASE_URL;
+  const imgBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   const [loading, setLoading] = useState(true);
 
    useEffect(() => {
@@ -35,7 +36,7 @@ function App() {
         <Header />
           <Routes>
             <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
-            <Route path='/MovieDetails/:movieId' element={<MovieDetails apiKey={apiKey} baseUrl={baseUrl}/>} />
+            <Route path='/MovieDetails/:movieId' element={<MovieDetails apiKey={apiKey} baseUrl={baseUrl} imgBaseUrl={imgBaseUrl}/>} />
           </Routes>
           <Footer />
       </ThemeContextProvider>
