@@ -33,7 +33,7 @@ function App() {
   <>
     <BrowserRouter>
       <ThemeContextProvider>
-        <Header />
+        <Header apiKey={apiKey} baseUrl={baseUrl} />
           <Routes>
             <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
             <Route path='/MovieDetails/:movieId' element={<MovieDetails apiKey={apiKey} baseUrl={baseUrl} imgBaseUrl={imgBaseUrl}/>} />

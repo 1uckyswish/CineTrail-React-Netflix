@@ -22,7 +22,6 @@ function PopularMovies({baseUrl, apiKey}) {
           <div className="popular-cards-wrapper">
             {
               popularMovies.map((movie)=> (
-              <p>
                 <MovieCard
                   key={movie?.id}
                   movie={movie}
@@ -32,14 +31,13 @@ function PopularMovies({baseUrl, apiKey}) {
                   cardStyle="popular-card"
                   imgUrl={movie?.poster_path}
                   movieId={movie?.id}/>
-                </p>
                 ))
             }
           </div>
           <div className="page-numbers">
             Select Page
             {
-              pageNumbers.map((num)=><p onClick={()=> setCurrentPage(num)}>{num}</p>)
+              pageNumbers.map((num)=><p  key={num} onClick={()=> setCurrentPage(num)}>{num}</p>)
             }
           </div>
      </div>

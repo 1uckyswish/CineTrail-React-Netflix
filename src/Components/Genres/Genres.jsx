@@ -23,17 +23,17 @@ function Genres({ movieGenres, component, apiKey}) {
       {
       component === "details" ? (movieGenres?.map((genre, index) => {
         return (
-            <span key={genre?.id}>
+            <p key={genre?.id}>
               {index === movieGenres.length - 1 ? `${genre.name}` : `${genre.name},`}
               &nbsp;
-            </span>);})
+            </p>);})
                 )
        :
         movieGenres?.map((id,index)=>{
             for(let i = 0; i< allGenres.length; i++){
                 if(allGenres[i].id === id){
                     return (
-                        <p> &nbsp; 
+                        <p key={id}> &nbsp; 
                             {
                              index === movieGenres.length - 1?
                              `${allGenres[i].name}`

@@ -54,6 +54,14 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
          url={`https://www.youtube.com/watch?v=${videoLink}`}
          width="100%"
          height="100%"
+         config={{
+          youtube: {
+            playerVars:{
+              showInfo: 1, 
+              origin: `https/localhost:3000`,
+            },
+          },
+         }}
          />
       </div>
         <div className="details-container">
