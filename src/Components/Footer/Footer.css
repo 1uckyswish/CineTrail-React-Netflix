@@ -1,6 +1,6 @@
 .footer-container{
     color: var(--white);
-    background-color: var(--light-bg);
+    background-color: var(--footer-bg);
     height: 50px;
 }
 

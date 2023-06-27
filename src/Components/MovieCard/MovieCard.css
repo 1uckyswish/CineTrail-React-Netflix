@@ -30,6 +30,10 @@
     text-align: center;
 }
 
+.movie-info-bottom p:last-child{
+     color:rgb(253, 204, 13);
+}
+
 .popular-card:hover .movie-info-top{
     visibility: visible;
     animation: myAnim 1s ease 0s 1 normal forwards;

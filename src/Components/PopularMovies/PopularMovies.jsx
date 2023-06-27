@@ -11,7 +11,7 @@ function PopularMovies({baseUrl, apiKey}) {
     ()=>{
       axios.get(`${baseUrl}popular?api_key=${apiKey}&language=en-US&page=${currentPage}`)
       .then(result=>{
-        // console.log(result?.data?.results)
+        console.log("lol",result?.data?.results)
         setPopularMovies(result?.data?.results)
       })
        .catch((error)=> console.log(error))
@@ -35,9 +35,8 @@ function PopularMovies({baseUrl, apiKey}) {
             }
           </div>
           <div className="page-numbers">
-            Select Page
             {
-              pageNumbers.map((num)=><p  key={num} onClick={()=> setCurrentPage(num)}>{num}</p>)
+              pageNumbers.map((num)=><p className='page-numbers' key={num} onClick={()=> setCurrentPage(num)}>{num}</p>)
             }
           </div>
      </div>
