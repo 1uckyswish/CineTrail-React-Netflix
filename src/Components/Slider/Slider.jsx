@@ -4,6 +4,7 @@ import axios from 'axios';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import StarRatings from 'react-star-ratings';
 import Genres from '../Genres/Genres';
+import { Link } from 'react-router-dom';
 
 function Slider({ apiKey, baseUrl }) {
   const [upcomingMovies, setUpComingMovies] = useState([]);
@@ -69,6 +70,7 @@ function Slider({ apiKey, baseUrl }) {
               starSpacing='1px'
             />
           )}
+          <Link to={`/MovieDetails/${upcomingMovies[index]?.id}`} className="see-details">See Details</Link>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Homepage from './Pages/Homepage/Homepage'
 import Footer from './Components/Footer/Footer'
 import ThemeContextProvider from './context/ThemeContext'
 import MovieDetails from './Pages/MovieDetails/MovieDetails'
+import SignUp from './Pages/SignUp/SignUp'
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -37,6 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage apiKey={apiKey} baseUrl={baseUrl} />}/>
             <Route path='/MovieDetails/:movieId' element={<MovieDetails apiKey={apiKey} baseUrl={baseUrl} imgBaseUrl={imgBaseUrl}/>} />
+            <Route path='/SignUp' element={<SignUp/>}/>
           </Routes>
           <Footer />
       </ThemeContextProvider>

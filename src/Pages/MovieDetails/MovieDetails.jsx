@@ -45,7 +45,7 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
     },[]);
 
 
-
+// line 61 change url to hosted link
   return (
     <div className="movie-details-container">
       <div className="trailer-container">

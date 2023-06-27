@@ -51,7 +51,7 @@ function Header({apiKey}) {
             }
           </div> 
           :
-           null
+          ""
         }
       </div>
 

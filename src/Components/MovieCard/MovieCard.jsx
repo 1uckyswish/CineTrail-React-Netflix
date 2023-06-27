@@ -1,4 +1,5 @@
 import "./MovieCard.css";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie, width, height, radius, cardStyle, imgUrl, movieId}) {
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
@@ -15,7 +16,7 @@ function MovieCard({ movie, width, height, radius, cardStyle, imgUrl, movieId}) 
     boxShadow: cardStyle === "popular-card" ? "0px 0px 10px 0px rgba(118, 118, 118, 0.75)" : null,
   }
   return (
-    <a href={`/MovieDetails/${movieId}`} className={cardStyle}>
+    <Link to={`/MovieDetails/${movieId}`} className={cardStyle}>
       <div style={imageStyle}>
         <div className="movie-info-top">stars</div>
         <div className="movie-info-bottom">
@@ -29,7 +30,7 @@ function MovieCard({ movie, width, height, radius, cardStyle, imgUrl, movieId}) 
           :
           null
         }
-    </a>
+    </Link>
   )
 }
 
