@@ -5,6 +5,7 @@ import axios from 'axios';
 import ReactPlayer from 'react-player/youtube'
 import Review from '../../Components/Review/Review';
 import Genres from '../../Components/Genres/Genres';
+import StarRatings from 'react-star-ratings';
 
 
 
@@ -16,6 +17,7 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
   const [numReviews, setNumReviews] = useState(3);
   const [totalReviews, setTotalReviews] = useState();
   const [movieGenres, setMovieGenres] = useState([]);
+  const [movieRating, setMovieRating] = useState(0)
 
 
 
@@ -25,6 +27,7 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
       .then(result=>{
         setMovie(result?.data);
         setMovieGenres(result?.data?.genres);
+        setMovieRating((result?.data?.vote_average)/2)
       })
        .catch((error)=> console.log(error))
        //* fetch the data from api to get movie videos
@@ -37,9 +40,9 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
       //* fetch the data from api to get reviews
        axios.get(`${baseUrl}${movieId}/reviews?api_key=${apiKey}&language=en-US&page=1`)
       .then(result=>{
-        // console.log(result.data.results)
         setReviews(result?.data?.results)
         setTotalReviews(result?.data?.results.length);
+        // setMovieRating((result.data.vote_average)/2)
       })
        .catch((error)=> console.log(error))
     },[]);
@@ -68,6 +71,12 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
           <div className="title-container">
             <h1>{movie?.title}</h1>
           </div>
+         <StarRatings
+             rating={movieRating}
+              starRatedColor={'#FDCC0D'}
+              starDimension='15px'
+              starSpacing='1px'
+            />
           <div className="info-container">
             <img
             src={`${imgBaseUrl}/${movie?.poster_path}`}
@@ -90,6 +99,7 @@ function MovieDetails({apiKey, baseUrl, imgBaseUrl}) {
             </div>
           </div>
           <div className="review-container">
+            <p className="reviews-title">Reviews</p>
             {
               reviews.slice(0, numReviews).map((review)=>{
                return <Review 

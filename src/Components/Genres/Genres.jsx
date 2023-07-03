@@ -33,14 +33,14 @@ function Genres({ movieGenres, component, apiKey}) {
             for(let i = 0; i< allGenres.length; i++){
                 if(allGenres[i].id === id){
                     return (
-                        <p key={id}> &nbsp; 
+                        <p key={id}> &nbsp;
                             {
                              index === movieGenres.length - 1?
                              `${allGenres[i].name}`
                              :
-                             `${allGenres[i].name},` 
+                             `${allGenres[i].name},`
                             }
-                          &nbsp; 
+                          &nbsp;
                         </p>
                     )
                 }
