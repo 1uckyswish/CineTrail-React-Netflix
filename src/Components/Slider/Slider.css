@@ -46,16 +46,11 @@
    .see-details{
     margin-top:10px;
     cursor:pointer;
-    color:var(--red);
-    font-weight: bold;
+    color:var(--white);
    }
    .see-details:hover{
-        color:rgb(253, 204, 13);
+    color:var(--red);
    }
-
-.slider-container {
-  transform: translateZ(5);
-}
 
 
 @media (max-width:768px){

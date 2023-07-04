@@ -20,7 +20,6 @@
     color: var(--red);
     font-size: 2rem;
     font-weight:bold;
-    font-family: 'Bebas Neue', sans-serif;
 }
 .search-container{
     width:40%;
@@ -28,19 +27,22 @@
     position:relative;
 }
 .search-input{
-    border:3px solid var(--grey);
+    border:none;
     padding:8px;
     border-radius: 8px;
     width:100%;
     background-color: black;
-    color:var(--white);
+    color:var(--grey-text);
 } 
-
+.input-active{
+    border-radius: 0;
+}
 .search-input::placeholder{
-   color:var(--white);
+   color:var(--grey-text);
 }
 .search-input:focus{
   outline:none;
+  border-radius: 0;
 }
 .input-light{
 background-color: var(--footer-bg);
@@ -194,6 +196,4 @@ color:var(--white);
     .search-results-item p{
         font-size:0.75rem;
     }
-
-
 }

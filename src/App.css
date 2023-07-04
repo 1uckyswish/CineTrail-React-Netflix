@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 *{
   margin:0;
   padding:0;
   box-sizing: border-box;
-  font-family: 'Roboto', serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 :root{
@@ -17,7 +16,7 @@
   --dark-bg:#221f1f;
   --light-bg:white; 
   --footer-bg:#373232;
-  --transparent-bg:rgba(20, 20, 20, 0.9);
+  --transparent-bg:rgba(20, 20, 20, 0.7);
   --grey:#2D2D2D;
   --grey-text:#9B9B9B;
 }
@@ -26,11 +25,4 @@ a{
 }
 body{
   background-color: var(--dark-bg);
-}
-
-.loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
