@@ -4,14 +4,20 @@ import "./slider.css"
 import Genres from '../Genres/Genres'
 import Ratings from '../Ratings/Ratings'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Slider({apiKey, baseUrl}) {
     const [upcomingMovies, setUpcomingMovies]=useState([])
     const [index, setIndex]=useState(0)
     const [movieRatings, setMovieRatings]=useState([]);
     const imageBaseUrl="https://image.tmdb.org/t/p/original"
+    const navigate = useNavigate();
 
+    const handlePage=()=>{
+    scrollTo({top: 0, left: 0, behavior: "smooth"})
+    navigate(`/moviedetails/${upcomingMovies[index]?.id}`)
+    window.location.reload(); // Auto-refresh the page
+}
 
     useEffect (()=>{
         axios.get(`${baseUrl}/movie/upcoming?api_key=${apiKey}`)
@@ -32,7 +38,7 @@ const sliderStyle={
     backgroundPosition: "center",
     backgroundRepeat: 'no-repeat',
     height: "60vh",
-    position: 'relative'
+    position: 'relative',
 }
 
 
@@ -66,7 +72,7 @@ const handleLeft=()=>{
         <Genres moviesGenres={upcomingMovies[index]?.genre_ids} baseUrl={baseUrl} apiKey={apiKey}/>
         <p>Release Date: {upcomingMovies[index]?.release_date}</p>
         <Ratings movieRating={movieRatings[index]}/>
-        <Link  to={`/moviedetails/${upcomingMovies[index]?.id}`} className="see-details">See Details</Link>
+        <div onClick={handlePage}>See Details</div>
 
 
 

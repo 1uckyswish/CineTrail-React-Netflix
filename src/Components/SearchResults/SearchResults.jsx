@@ -10,12 +10,13 @@ function SearchResults({movie,setQuery}) {
     const handleNavigation=()=>{ 
       setQuery('')
       navigate(`/moviedetails/${movie.id}`)
+       window.location.reload(); // Auto-refresh the page
     }
   return (
     <div className="search-results-item" onClick={handleNavigation} >
-        <img className="result-img" src={imageError ? noImage :`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
-           onError={() => setImageError(true)} alt=""/>
         <p>{movie.title}</p> 
+        <img className="result-img" src={imageError ? 'https://media.istockphoto.com/id/1317594987/vector/no-photographing-prohibition-symbol-sign-photograph-amd-camera-prohibit-icon-logo-vector.jpg?s=612x612&w=0&k=20&c=28EEfqEEiIsTZe2eJ-Dm7NWd9ppOzkuoe_Rp9ZHjtyY=' :`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
+           onError={() => setImageError(true)} alt=""/>
     </div>
   )
 }

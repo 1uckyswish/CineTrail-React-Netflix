@@ -42,7 +42,7 @@ const handleLogout=()=>{
   return (
     //if true header appears in dark mode else header light mode
     <div className={darkMode ?"header-container":"header-container header-light" }>
-      <Link className="logo" to="/">CineTrail</Link>
+      <Link className="logo" to="/">Netflix</Link>
       <div className="search-container">
 
 
@@ -80,26 +80,6 @@ const handleLogout=()=>{
                 </div>
 }        
 </div>
-{
-                    token 
-                    ? <div className={darkMode ?"profile-container" : "profile-container profile-light" }>
-                        <img src={user.image_url} className="profile-img" onClick={()=>setProfileOptions(!profileOptions)} alt=""/>
-                        <p>Welcome {user.username}<span></span></p>
-                        {
-                            profileOptions
-                            ? <div className="profile-options">
-                                <Link to="/myfavorites">My Favorites</Link>
-                                <p className="logout" onClick={handleLogout}>Logout</p>
-                              </div>
-                            : null
-                        } 
-                        
-                        
-                     </div>
-                    : <div>
-                  <button className="create-account-btn" onClick={()=>navigate('/signup')}>Create an account</button>
-        </div>
-}
       </div>
     </div>
   )
