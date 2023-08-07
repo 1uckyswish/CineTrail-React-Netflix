@@ -1,37 +1,42 @@
-import "./MovieCard.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './movie.css';
+import { Link, useNavigate } from 'react-router-dom';
+import Ratings from '../Ratings/Ratings';
 
-function MovieCard({ movie, width, height, radius, cardStyle, imgUrl, movieId}) {
-  const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
-  const imageStyle={
-    backgroundImage: `url(${imageBaseUrl}${imgUrl})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width,
-    height,
-    position: "relative",
-    alignItems: "center",
+export default function MovieCard({ data, imageUrl, width, height, cardStyle, radius }) {
+  const rating = Math.round(data?.vote_average / 2);
+  const navigate = useNavigate();
+
+  const imageStyle = {
+    backgroundImage: `url("https://image.tmdb.org/t/p/w500/${imageUrl}")`,
+    width: width,
+    height: height,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    position: 'relative',
     borderRadius: radius,
-    boxShadow: cardStyle === "popular-card" ? "0px 0px 10px 0px rgba(118, 118, 118, 0.75)" : null,
-  }
+    boxShadow: cardStyle === 'popular-card' ? '0px 0px 10px 0px rgba(118,118,118,0.75)' : null,
+  };
+
+  const handleClick = () => {
+    navigate(`/moviedetails/${data.id}`);
+    window.location.reload(); // Auto-refresh the page
+     scrollTo({top: 0, left: 0, behavior: "smooth"})
+  };
+
   return (
-    <Link to={`/MovieDetails/${movieId}`} className={cardStyle}>
+    <div className={cardStyle} onClick={handleClick}>
       <div style={imageStyle}>
-        <div className="movie-info-top">stars</div>
+        <div className="movie-info-top">
+          <Ratings movieRating={rating} />
+        </div>
         <div className="movie-info-bottom">
-          <p>{movie?.title}</p>
-          <p>Rating: {movie?.vote_average}</p>
+          <p>{data?.title}</p>
+          <p>Rating: {rating}</p>
         </div>
       </div>
-        {
-          cardStyle === "top-rated-card"?
-          <p>{movie?.title}</p>
-          :
-          null
-        }
-    </Link>
-  )
+      {cardStyle === 'top-rated-card' ? <p>{data?.title}</p> : null}
+    </div>
+  );
 }
-
-export default MovieCard

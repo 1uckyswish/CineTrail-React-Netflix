@@ -20,7 +20,6 @@
     color: var(--red);
     font-size: 2rem;
     font-weight:bold;
-    font-family: 'Bebas Neue', sans-serif;
 }
 .search-container{
     width:40%;
@@ -28,19 +27,22 @@
     position:relative;
 }
 .search-input{
-    border:3px solid var(--grey);
+    border:none;
     padding:8px;
     border-radius: 8px;
     width:100%;
     background-color: black;
-    color:var(--white);
+    color:var(--grey-text);
 } 
-
+.input-active{
+    border-radius: 0;
+}
 .search-input::placeholder{
-   color:var(--white);
+   color:var(--grey-text);
 }
 .search-input:focus{
   outline:none;
+  border-radius: 0;
 }
 .input-light{
 background-color: var(--footer-bg);
@@ -54,7 +56,7 @@ color:var(--white);
     position:absolute;
     top:30px;
     left:0;
-    height:300px;
+    height:500px;
     width:100%;
     animation: input 0.5s ease 0s 1 normal forwards;
     overflow: scroll;
@@ -63,22 +65,32 @@ color:var(--white);
 .search-results-item{
     background-color: var(--dark-bg);
     color:var(--white);
-    height:50px;
+    height:80px;
     margin-bottom:2px;
     display: flex;
     justify-content: space-between;
-    padding-right:10px;
+    padding-left:0px;
     cursor:pointer;
+    text-align: center;
 }
+
+.search-results-item p{
+      padding: 20px;
+      text-align: center;
+}
+
 .search-results-item:hover{
     border:solid 1px gray;
 }
 .result-img{
-    height:50px;
-    width:80px;
-}
-.theme-button-container{
-    /* width:5%; */
+    height:80px;
+    width:100px;
+    object-fit: cover;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 .header-buttons-container{
     display: flex;
@@ -194,6 +206,4 @@ color:var(--white);
     .search-results-item p{
         font-size:0.75rem;
     }
-
-
 }
