@@ -128,11 +128,11 @@ return (
   <div className={darkMode ?"details-container" :"details-container details-light" }>
         <div className="title-container">
           <h1>{movie.title}</h1>
-          {
+          {/* {
             added 
             ? <span className="remove-btn" onClick={removeFromFavorites}>Remove from favorites.</span> 
             : <span className="add-btn" onClick={addToFavorites}>Add to favorites.</span>
-          }
+          } */}
         </div>
         <Ratings movieRating={movieRating}/>
         <div className="info-container">
