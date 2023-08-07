@@ -61,31 +61,31 @@ export default function MovieDetails({baseUrl,apiKey, serverUrl}) {
 
 
 
-const addToFavorites=()=>{
-  console.log(serverUrl)
-  if(!token){
-     alert('Please login to add a movie to your favorites.')
-  }else{
-    axios.post(`${serverUrl}favoriteMovies`,{
-      user_id:user._id,
-      movie_id:movie.id
-    })
-    .then(res=>{
-      setAdded(true)
-    })
-    .catch(err=>console.log(err))
-  }
+// const addToFavorites=()=>{
+//   console.log(serverUrl)
+//   if(!token){
+//      alert('Please login to add a movie to your favorites.')
+//   }else{
+//     axios.post(`${serverUrl}favoriteMovies`,{
+//       user_id:user._id,
+//       movie_id:movie.id
+//     })
+//     .then(res=>{
+//       setAdded(true)
+//     })
+//     .catch(err=>console.log(err))
+//   }
 
-}
+// }
 
-const removeFromFavorites=()=>{
-  axios.delete(`${serverUrl}favoriteMovies/${user._id}/${movie.id}`)
-  .then(res=>{
-    console.log(res.data)
-    setAdded(false)
-  })
-  .catch(err=>console.log(err))
-}
+// const removeFromFavorites=()=>{
+//   axios.delete(`${serverUrl}favoriteMovies/${user._id}/${movie.id}`)
+//   .then(res=>{
+//     console.log(res.data)
+//     setAdded(false)
+//   })
+//   .catch(err=>console.log(err))
+// }
 
 useEffect(() => {
   axios.post(`${serverUrl}favoriteMovies/search`,{ 
